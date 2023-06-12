@@ -6,3 +6,12 @@ services:
       - '8888:8888'
     volumes:
       - ./work:/home/jovyan/work
+  db:
+    build: 
+      context: .
+      dockerfile: ./sql_startup/Dockerfile
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"

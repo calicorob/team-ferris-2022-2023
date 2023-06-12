@@ -1,0 +1,3 @@
+CREATE DATABASE ferris;
+
+CREATE SCHEMA stg;
