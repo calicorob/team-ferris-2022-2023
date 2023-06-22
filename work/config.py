@@ -1,4 +1,4 @@
-__all__ = ['db_engine','inspector', 'data_schema','boxscore_meta','boxscore_table']
+__all__ = ['db_engine','inspector', 'data_schema','data_schema_name','boxscore_meta','boxscore_table']
 
 
 from sqlalchemy import Table, Column, String, ARRAY, Text, MetaData, Boolean, SmallInteger, BigInteger
@@ -36,10 +36,15 @@ boxscore_table = Table(
     ,Column(name='draw',type_=Text)
     ,Column(name='hammer_progress',type_=ARRAY(Boolean))
     ,Column(name='relative_score',type_=ARRAY(SmallInteger))
-    ,Column(name='guid',type_=BigInteger)
+    ,Column(name='guid',type_=Text)
     ,schema=data_schema_name
 
 )
+
+
+events = [
+    7508
+]
 
 if __name__ == '__main__':
     pass
