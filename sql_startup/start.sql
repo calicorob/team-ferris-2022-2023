@@ -2,10 +2,10 @@ CREATE DATABASE ferris;
 
 \c ferris;
 
-CREATE SCHEMA stg;
+CREATE SCHEMA data;
 
 
-CREATE TABLE stg.boxscore
+CREATE TABLE data.boxscore
 (
      team_name TEXT
     ,href TEXT
@@ -16,7 +16,7 @@ CREATE TABLE stg.boxscore
     ,draw TEXT
     ,hammer_progress BOOLEAN[]
     ,relative_score SMALLINT[]
-    ,guid BIGINT
+    ,guid TEXT
 
 
 );
