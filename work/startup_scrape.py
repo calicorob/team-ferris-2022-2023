@@ -5,7 +5,7 @@ import czapi
 
 def test_main()->None:
     event = api.Event(cz_event_id=7508)
-    boxscores = event.get_flat_boxscores()
+    boxscores = event.get_flat_boxscores(flat=False)
 
 
 
@@ -15,19 +15,19 @@ def test_main()->None:
             ,[
 
                 {
-                     'team_name':boxscore[0][0]
-                    ,'href':boxscore[0][1]  
-                    ,'hammer_start':boxscore[0][2]
-                    ,'score':boxscore[0][3]
-                    ,'final_score':boxscore[0][4]
-                    ,'draw_num':boxscore[0][5]
-                    ,'draw':boxscore[0][6]  
-                    ,'hammer_progress' : boxscore[0][7]  
-                    ,'relative_score' : boxscore[0][8]  
-                    ,'guid' : boxscore[0][9]  
+                     'team_name':boxscore.team_name
+                    ,'href':boxscore.href
+                    ,'hammer_start':boxscore.hammer_start
+                    ,'score':boxscore.score
+                    ,'final_score':boxscore.final_score
+                    ,'draw_num':boxscore.draw_num
+                    ,'draw':boxscore.draw
+                    ,'hammer_progress' : boxscore.hammer_progression
+                    ,'relative_score' : boxscore.relative_score
+                    ,'guid' : boxscore.guid
                 }
             
-            for boxscore in boxscores if len(boxscore) > 0] # if statement is because czapi is dumb
+            for boxscore in boxscores] # if statement is because czapi is dumb
         )
 
 
