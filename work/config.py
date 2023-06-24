@@ -1,4 +1,4 @@
-__all__ = ['db_engine','inspector', 'data_schema','data_schema_name','boxscore_meta','boxscore_table']
+__all__ = ['db_engine', 'data_schema','data_schema_name','boxscore_meta','boxscore_table','events']
 
 
 from sqlalchemy import Table, Column, String, ARRAY, Text, MetaData, Boolean, SmallInteger, BigInteger
@@ -16,7 +16,6 @@ url_object = URL.create(
 )
 
 db_engine = create_engine(url_object)
-inspector = inspect(db_engine)
 
 # schema
 data_schema_name = 'data'
@@ -43,7 +42,17 @@ boxscore_table = Table(
 
 
 events = [
-    7508
+     7508
+    ,7450
+    ,7403
+    ,7543
+    ,7405
+    ,7472
+    ,7473
+    ,7135
+    ,7707
+    ,7319
+    
 ]
 
 if __name__ == '__main__':
