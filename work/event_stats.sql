@@ -59,6 +59,8 @@ SELECT
      es.*
     ,he.ends_played
     ,he.ends_with_hammer
+    ,ROUND(es.games_with_hammer_to_start / CAST(es.games_played AS NUMERIC(10,6)),4) AS hammer_to_start_pct
+    ,ROUND(es.wins / CAST(es.games_played AS NUMERIC(10,6)),4) AS win_pct
     ,he.ends_with_hammer_blanked
     ,he.ends_converted
     ,ROUND((he.ends_converted / CAST((he.ends_with_hammer - he.ends_with_hammer_blanked) AS NUMERIC(10,6))),4) AS hammer_conversion
@@ -73,4 +75,3 @@ SELECT
 FROM event_stats es
 LEFT JOIN hammer_efficiency he
 ON he.team_id = es.team_id AND he.event_id = es.event_id;
-
