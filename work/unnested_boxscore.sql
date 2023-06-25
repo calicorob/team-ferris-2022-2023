@@ -15,11 +15,12 @@ SELECT
     ,SUBSTRING(b.href FROM '^.*teamid=(\d*)[#&].*') AS team_id
     ,SUBSTRING(b.href FROM '^.*eventid=(\d*)[#&].*') AS event_id
     ,hp.end_start_hammer
-    ,hp.end_result
-    ,hp.idx
+    ,hp.end_score
+    ,hp.idx AS end_num
     ,hp.end_start_relative_score
+    ,CONCAT(b.guid,'|',hp.idx) AS end_guid
 FROM data.boxscore b
-CROSS JOIN UNNEST(b.hammer_progress,b.score,b.relative_score) WITH ORDINALITY AS hp(end_start_hammer,end_result,end_start_relative_score,idx)
+CROSS JOIN UNNEST(b.hammer_progress,b.score,b.relative_score) WITH ORDINALITY AS hp(end_start_hammer,end_score,end_start_relative_score,idx)
 )
 SELECT
     *
