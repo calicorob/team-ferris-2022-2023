@@ -1,6 +1,6 @@
-DROP TABLE IF EXISTS data.test;
+DROP TABLE IF EXISTS data.unnested_boxscore;
 
-CREATE TABLE data.test 
+CREATE TABLE data.unnested_boxscore 
 AS
 WITH ds AS
 (
